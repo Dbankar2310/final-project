@@ -31,6 +31,7 @@ import { MatInput, MatInputModule } from '@angular/material/input';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,8 @@ DialogComponent,
     ThankyouComponent,
 FilterPipe,
 WishlistComponent,
-AdminPanelComponent,
+AdminPanelComponent
+
 
 
   ],

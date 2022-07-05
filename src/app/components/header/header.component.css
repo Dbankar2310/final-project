@@ -28,7 +28,8 @@
   color: #febd69;
   padding-top: 10px;
   padding-right: 10px;
-font-size: 33px;
+/* font-size: 33px; */
+font-size: 2vw;
 transition: all 3s linear;
 }
 
@@ -52,7 +53,8 @@ transition: all 3s linear;
 
 .header-menu-icon > mat-icon{
 
-font-size: 40px;
+/* font-size: 40px; */
+font-size: 2.6vw;
 align-items: center;
 padding-right: 2rem;
 color: #ede5da;
@@ -60,9 +62,11 @@ color: #ede5da;
 
 .header-menu-input{
   height: 20px;
+  /* height:1.5vw; */
   padding: 10px;
   border: none;
-  width: 30rem;
+  /* width: 30rem; */
+  width:40vw;
   /* margin-left: 2rem; */
   border-radius: 2px;
   border-color:#232f3e;
@@ -70,8 +74,10 @@ color: #ede5da;
 
 .header-menu-searchbar-icon{
   background-color: #febd69;
-  height: 40px;
-  width: 40px;
+    height: 40px;
+  /* width: 40px;  */
+  /* height: 3.1vw; */
+  width: 3.1vw;
   color: black;
   display: flex;
   justify-content: space-around;
@@ -93,7 +99,8 @@ color: #ede5da;
   display: flex;
   margin-top: 10px;
   /* margin-left: 8px; */
-  height: 50px;
+  /* height: 50px; */
+  height: 2vw;
   justify-content: space-around;
 }
 
@@ -114,7 +121,8 @@ color: #ede5da;
 .header-menu-searchbar{
   display: flex;
   margin-top: 8px;
-  height: 40px;
+  /* height: 40px; */
+  height: 3.1vw;
   justify-content: center;
   flex: 1;
 cursor: pointer;
@@ -136,19 +144,21 @@ cursor: pointer;
 
 .header-menu-signin a{
   text-decoration: none;
-  word-spacing: 1.5px;
-
+  /* word-spacing: 1.5px; */
+  /* word-spacing: 0.1vw; */
 }
 
 
 
 .header-menu-top-item{
 color: lightgray;
-font-size: 13px;
+/* font-size: 13px; */
+font-size: 1vw;
 }
 
 .header-menu-bottom-item{
-  font-size: 13px;
+  /* font-size: 13px; */
+  font-size: 1vw;
   font-weight: 500;
 }
 
@@ -199,7 +209,8 @@ font-size: 13px;
   }
 }
  .wishlist-cart-icon{
-  font-size: x-large;
+  /* font-size: x-large; */
+  font-size: 2vw;
   color: #f6f0f0;
 }
 
@@ -211,7 +222,8 @@ font-size: 13px;
 
 .header-cart-number{
   color: #febd69;
-  font-size: 18px;
+  /* font-size: 18px; */
+  font-size: 1.4vw;
   font-weight: 800;
 }
 

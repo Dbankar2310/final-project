@@ -1,128 +1,4 @@
-<!-- <nav class="navbar">
-  <div class="container">
-
-    <h1 class="top" style="color:aliceblue;">Admin Panel</h1>
-    <div class ="d-flex">
-      <button (click)="clickAddProduct()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product</button>
-    </div>
-  </div>
-</nav>
-
-
-
-<table class="table mt-3">
-  <thead>
-    <tr>
-
-      <th scope="col">Title</th>
-      <th scope="col">Image</th>
-      <th scope="col">Images</th>
-      <th scope="col">Description</th>
-      <th scope="col">Price</th>
-      <th scope="col">Quantity</th>
-      <th scope="col">Short Description</th>
-      <th scope="col">Category</th>
-      <th scope="col">Categorie_id</th>
-      <th scope="col">Tags</th>
-      <th scope="col">Addedtowishlist</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let row of productData">
-
-
-    <td>{{row.title}}</td>
-    <td>{{row.image}}</td>
-    <td>{{row.images}}</td>
-    <td>{{row.description}}</td>
-    <td>{{row.price}}</td>
-    <td>{{row.quantity}}</td>
-    <td>{{row.shortDesc}}</td>
-    <td>{{row.category}}</td>
-    <td>{{row.categorie_id}}</td>
-    <td>{{row.tags}}</td>
-    <td>{{row.addedtowishlist}}</td>
-    <td>
-    <button (click)="onEdit(row)" class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
-    <button (click)="deleteProduct(row)" class="btn btn-danger mx-3">Delete</button>
-    </td>
-    </tr>
-
-  </tbody>
-</table>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Product</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-
-<form action="">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Title</label>
-            <input type="text" class="form-control" id="title" aria-describedby="title" [formControl]="title">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Image</label>
-            <input type="text" [formControl]="image" class="form-control" id="image" aria-describedby="image">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Images</label>
-            <input type="text" [formControl]="images" class="form-control" id="images" aria-describedby="images">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Description</label>
-            <input type="text" [formControl]="description" class="form-control" id="desc" aria-describedby="desc">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Price</label>
-            <input type="text" [formControl]="price" class="form-control" id="price" aria-describedby="price">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Quantity</label>
-            <input type="text" [formControl]="quantity" class="form-control" id="quantity" aria-describedby="quantity">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Short Description</label>
-            <input type="text" [formControl]="shortDesc" class="form-control" id="shortdesc" aria-describedby="shortdesc">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Category</label>
-            <input type="text" [formControl]="category" class="form-control" id="category" aria-describedby="category">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Categorie_id</label>
-            <input type="text" [formControl]="categorie_id" class="form-control" id="categorie_id" aria-describedby="category">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Tags</label>
-            <input type="text" [formControl]="tags" class="form-control" id="tags" aria-describedby="tags">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Addedtowishlist</label>
-            <input type="text" [formControl]="addedtowishlist" class="form-control" id="addedtowishlist" aria-describedby="tags">
-          </div>
-        </form>
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" *ngIf="showAdd" class="btn btn-primary" >Add</button>
-        <button type="button" *ngIf="showUpdate" class="btn btn-primary" (click)="updateProduct()">Update</button>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
+<!-- top navigation bar -->
 <nav>
   <div id = "boxes">
      <div id = "leftbox">
@@ -138,7 +14,6 @@
     <div id = "rightbox">
       <br>
       <button class="btn" (click)="openDialog()">Add Product</button>
-     <!-- <button mat-button color="warn" (click)="openDialog()">Add Product</button> -->
     </div>
   </div>
 </nav>
@@ -150,8 +25,6 @@
     <!-- <h1>All Products</h1> -->
     <div class="product" >
       <mat-card *ngFor="let dt of result | paginate: { itemsPerPage: 4, currentPage: p }">
-       <!-- <div *ngIf="!dt.addedtowishlist" class="wishlist"><i class="fa-regular fa-heart"></i></div>
-       <div *ngIf="dt.addedtowishlist" class="wishlist"><i class="fa-solid fa-heart"></i></div> -->
        <img src="{{dt.image}}" class="product-img" />
         <p><strong>Title :</strong> <strong>{{dt.title}}</strong></p>
         <p><strong>Description :</strong> {{dt.description}}</p>

@@ -169,8 +169,10 @@ font-size: 13px;
   height: 30px;
   background-image: none;
   background-color: #232f3e;
-  padding-left: 8px;
-  font-size: 12px;
+  /* padding-left: 8px; */
+  /* font-size: 12px; */
+  padding-left:1vw;
+  font-size:1.3vw;
   padding-top: 5.5px;
   border-bottom: 2px solid #febd69;
 
@@ -180,7 +182,8 @@ font-size: 13px;
   color: white;
 display: inline;
 padding-right: 20px;
-  font-size: 16px;
+  /* font-size: 16px; */
+  font-size:1.3vw;
   font-weight: 500;
   padding-left: 70px;
   text-decoration: none;

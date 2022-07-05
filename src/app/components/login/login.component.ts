@@ -10,6 +10,8 @@ import { Route, Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  // set some validations to the admin for login
+
   loginForm: FormGroup | any;
   title = 'material-login';
   constructor(private fb:FormBuilder,private router:Router) {
@@ -24,22 +26,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.createForm()
-
   }
-  // createForm(){
-  //   this.LoginForm = this.fb.group({
-  //     email:[''],
-  //     password:['']
-  //   })
-  // }
 
-  // signIn(){
-  //   console.log("values",this.LoginForm.value.email, 'Password',this.LoginForm.value.password)
-  // }
-  // createAccount(){
-
-  // }
+  // redirect the admin to admin-panel after successfull login
 
   onSubmit(){
     if(!this.loginForm.valid){

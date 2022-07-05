@@ -48,12 +48,9 @@ export class AdminPanelComponent implements OnInit {
   constructor(private api :ProductService, private formBuilder: FormBuilder,private dialog : MatDialog, private toastr:ToastrService) { }
 
   ngOnInit(): void {
-    this.api.getData().subscribe((data:IProduct[]) =>{
 
-    //   this.cartService.getProducts()
-    //   .subscribe(res=>{
-    //   this.totalItem = res.length;
-    // })
+    // get all products
+    this.api.getData().subscribe((data:IProduct[]) =>{
           console.log(data);
           this.result = data;
 })
@@ -95,6 +92,8 @@ updateProduct(product:IProduct){
     console.log('editing done')
   })
 }
+
+// for deleting the existing product
 
 deleteProduct(productId : any)
 {
