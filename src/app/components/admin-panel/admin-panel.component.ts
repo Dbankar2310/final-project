@@ -16,7 +16,7 @@ export class AdminPanelComponent implements OnInit {
   showAdd !: boolean;
   formValue !: FormGroup;
   productData !: any;
- p: any
+  p: any
   showUpdate !: boolean;
 
 
@@ -49,7 +49,7 @@ export class AdminPanelComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // get all products
+    // getData is the method that returns all the data which is defined in api service
     this.api.getData().subscribe((data:IProduct[]) =>{
           console.log(data);
           this.result = data;
@@ -73,6 +73,7 @@ openDialog(): void {
 
 }
 
+// for edit the existing product open the dialog
 editProduct(dt : IProduct)
 {
   this.dialog.open(DialogComponent,{
@@ -97,7 +98,7 @@ updateProduct(product:IProduct){
 
 deleteProduct(productId : any)
 {
-  this.api.deleteProduct(productId)
+  this.api.deleteProduct(productId)  // calling the deleteProduct method from service
   .subscribe({
     next:(res)=>{
       this.toastr.error(`${productId} 🛒 deleted`,`Successfully Deleted!`)

@@ -42,7 +42,7 @@
 
     <!--if product added to cart show this -->
      <div *ngIf="dt.addedtocart" >
-      <button class="Add-to-cart1" (click)="updateCartBool(dt);removeCartItem(dt)"><i class="fa-solid fa-circle-check" id="check"></i><strong> Product Added</strong></button>
+      <button class="Add-to-cart1" (click)="removeCartItem(dt);updateCartBool(dt);"><i class="fa-solid fa-circle-check" id="check"></i><strong> Product Added</strong></button>
     </div>
     </mat-card>
   </div>

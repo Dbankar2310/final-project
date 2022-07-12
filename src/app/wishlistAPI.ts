@@ -3,7 +3,6 @@
 export interface WishListAPI
 
 {
-
   productId:number;
   image:string;
   title:string;

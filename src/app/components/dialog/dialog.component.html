@@ -1,3 +1,4 @@
+<!-- add new product form -->
 
 <h1>Add Product</h1>
 <div mat-dialog-content>
@@ -54,8 +55,10 @@
 
 </form>
 <div mat-dialog-action [align] = "'end'">
-  <button mat-raised-button color = "warn" mat-dialog-close>Close</button>
+  <!--button for close the dialog component -->
+   <button mat-raised-button color = "warn" mat-dialog-close>Close</button>
 
+  <!--button for add new product which passes all the form data to the addProduct method -->
   <button style = "margin-left:2em;" mat-raised-button color = "primary" (click) = "save()">{{actionBtn}}</button>
 </div>
 

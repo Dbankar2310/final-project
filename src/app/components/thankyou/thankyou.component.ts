@@ -14,6 +14,9 @@ bill:IBillingDetails[]=[];
 public product:IProduct[]=[];
 public grandTotal!:number;
 dateObj= Date.now();
+public shopedmore:boolean=false;
+public discount:boolean=false;
+public showDefault:boolean=false;
   constructor( private billingDetails:BillingDetailsService, private cartService:CartService) { }
 
   ngOnInit(): void {
@@ -23,12 +26,29 @@ dateObj= Date.now();
       this.bill=data;
       console.log(this.bill)
     })
+
 //cartservice data storing in product by subscribing
     this.cartService.getProducts()
     .subscribe(res=>{
       this.product=res;
       this.grandTotal=this.cartService.getTotalPrice();
     })
-  }
+
+      //if else condition for shipping charges and
+  if(this.grandTotal>5000){
+    this.shopedmore=true;
+    this.discount=true;
+    }
+    else if(this.grandTotal>=1){
+  this.shopedmore=false;
+  this.discount=true;
+    }
+    else if(this.grandTotal==0){
+      this.shopedmore=false;
+      this.discount=false;
+        }
+      }
+//
+
 
 }

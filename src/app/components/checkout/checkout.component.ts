@@ -17,8 +17,9 @@ exForm!:FormGroup;
   public product:any=[];
   public grandTotal!:number;
   public totalItem: number=0;
-public shopedmore:boolean=false;
-
+  public shopedmore:boolean=false;
+  public discount:boolean=false;
+  public showDefault:boolean=false;
 
   constructor(private cartService: CartService,private toastr:ToastrService, private BillingService:BillingDetailsService ) { }
   FirstName:FormControl = new FormControl("");
@@ -79,20 +80,28 @@ public shopedmore:boolean=false;
     .subscribe(res=>{
     this.totalItem = res.length;
   })
+  //if else condition for shipping charges and
   if(this.grandTotal>5000){
   this.shopedmore=true;
+  this.discount=true;
   this.toastr.success('Free shipping specially for you','Wohhoo!',{
 positionClass:'toast-top-full-width'
   });
   }
+  else if(this.grandTotal>=1){
+this.shopedmore=false;
+this.discount=true;
+  }
+  else if(this.grandTotal==0){
+    this.shopedmore=false;
+    this.discount=false;
+      }
   else{
     this.toastr.info(`₹100 has been charged to you`,`Shop more than 5000`,{
       positionClass: 'toast-top-full-width',
       timeOut:2000
     })
   }
-
-
 }
 
 //razorpay payment integration
@@ -134,12 +143,16 @@ options = {
 paynow() {
   this.paymentId = '';
   this.error = '';
-  if(this.grandTotal<5000){
-  this.options.amount = this.grandTotal*100+10000;
+  if(this.grandTotal>5000){
+  this.options.amount = this.grandTotal*100-100000;
   }
-  else{
-    this.options.amount = this.grandTotal*100;
-  }//paise
+  else if(this.grandTotal>=1){
+    this.options.amount = this.grandTotal*100+10000;
+    }
+    else if(this.grandTotal==0){
+      this.options.amount = this.grandTotal*100;//paise
+      }
+
   this.options.prefill.name = "bhanu";
   this.options.prefill.email = "bhanubediya@gmail.com";
   this.options.prefill.contact = "9082356825";

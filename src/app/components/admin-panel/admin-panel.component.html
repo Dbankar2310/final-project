@@ -22,7 +22,6 @@
   <!-- display all products -->
 
   <div class="products" >
-    <!-- <h1>All Products</h1> -->
     <div class="product" >
       <mat-card *ngFor="let dt of result | paginate: { itemsPerPage: 4, currentPage: p }">
        <img src="{{dt.image}}" class="product-img" />

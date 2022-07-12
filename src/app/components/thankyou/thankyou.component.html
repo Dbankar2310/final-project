@@ -16,19 +16,35 @@
   <td class="content-block">
   <table class="invoice">
     <tbody><tr>
-   <td>Thankyou<br>Invoice #<br>{{ dateObj | date:'medium' }}</td>
+   <td>Thankyou<br>Invoice #1<br>{{ dateObj | date:'medium' }}</td>
   </tr>
    <tr>
    <td>
       <table class="invoice-items" cellpadding="0" cellspacing="0" >
     <tbody><tr *ngFor="let p of product">
     <td>{{p.title}}</td>
-    <td class="alignright">{{p.price}} </td>
+    <td class="alignright">{{p.price}}</td>
     </tr>
-    <tr class="total">
+      <tr *ngIf="shopedmore && discount">
+        <td>discount:</td>
+        <td class="alignright">1000</td>
+        </tr>
+        <tr *ngIf="!shopedmore && discount">
+          <td>shipping charges:</td>
+          <td class="alignright">100</td>
+          </tr>
+    <tr class="total" *ngIf="shopedmore && discount" >
     <td class="alignright" width="80%">Total</td>
-    <td class="alignright">{{grandTotal|currency:'INR'}}</td>
+    <td class="alignright">{{grandTotal-1000|currency:'INR'}}</td>
     </tr>
+    <tr class="total" *ngIf="!shopedmore && discount" >
+      <td class="alignright" width="80%">Total</td>
+      <td class="alignright">{{grandTotal+100|currency:'INR'}}</td>
+      </tr>
+      <tr class="total" *ngIf="!shopedmore && discount">
+        <td class="alignright" width="80%">Total</td>
+        <td class="alignright">{{grandTotal|currency:'INR'}}</td>
+        </tr>
     </tbody></table>
     </td>
     </tr>

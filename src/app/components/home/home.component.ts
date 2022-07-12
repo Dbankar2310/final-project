@@ -4,7 +4,6 @@ import { ProductService } from 'src/app/services/product.service';
 import { CartService } from 'src/app/services/cart.service';
 import { ToastrService } from 'ngx-toastr';
 // import { WishlistService } from 'src/app/services/wishlist.service';
-import { WishListAPI } from 'src/app/wishlistAPI';
 import { WishlistCartService } from 'src/app/services/wishlist-cart.service';
 
 
@@ -22,7 +21,6 @@ public filtercategory : IProduct[]=[];
 isExistInCart:boolean = false;
 public searchterm:string='';
 public totalItem: number=0;
-wishlistArray:WishListAPI[]=[];
   result:IProduct[]=[];
   constructor(private productService:ProductService, private cartService: CartService, private toastr:ToastrService,  private wishlistCartService:WishlistCartService)  { }
 
@@ -36,11 +34,11 @@ wishlistArray:WishListAPI[]=[];
     })
           console.log(data);
           this.result = data;
-          //for category
+          //for sorting the product by their category
 
           this.filtercategory = data;
 
-          //for cart
+          //campare and set the category of the product
           this.result.forEach((a:any)=>{
 
             if(a.category === "fasion"){
@@ -58,7 +56,7 @@ wishlistArray:WishListAPI[]=[];
             else{
               a.category = "Watches"
             }
-            Object.assign(a,{quantity:1,total:(a.price*a.quantity)})
+            Object.assign(a,{quantity:1,total:(a.price*a.quantity)})//showing the product price on the home page
           });
           console.log(this.result);
         });
@@ -67,7 +65,7 @@ wishlistArray:WishListAPI[]=[];
         this.cartService.search.subscribe((val:any)=>{
           this.searchkey=val;
         })
-            }
+      }
 
 
 //added to cart calling from cart service
@@ -76,7 +74,7 @@ wishlistArray:WishListAPI[]=[];
         this.cartService.addtoCart(dt);
         }
 
-//filter category to divide data into categories
+//filter the product by category and return the result to the homepage which is display on clicking the particular category
       filter(category : string){
         this.filtercategory = this.result
         .filter((a:any) =>{
@@ -86,7 +84,7 @@ wishlistArray:WishListAPI[]=[];
         })
       }
 
-      //search event for search bar
+//search event for search bar
       search(event:any){
         this.searchterm=(event.target as HTMLInputElement).value;
         this.cartService.search.next(this.searchterm);
@@ -102,7 +100,7 @@ updateBool(product:IProduct){
   console.log('addedtowishlist true');
       })
 }
-//updateing boolean colum in database i.e(addedtocartt)
+//updating boolean colum in database i.e(addedtocartt)
 updateCartBool(product:IProduct){
 product.addedtocart=product.addedtocart;//toggling between true and false
 this.productService.EditCart(product).subscribe(()=>{ //subscribing data

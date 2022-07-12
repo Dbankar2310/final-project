@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import{HttpClient}from '@angular/common/http'
 import { IProduct } from '../iproduct';
 import { Observable } from 'rxjs';
-import { WishListAPI } from '../wishlistAPI';
 
 @Injectable({
   providedIn: 'root'

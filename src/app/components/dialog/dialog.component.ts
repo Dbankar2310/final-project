@@ -15,6 +15,7 @@ export class DialogComponent implements OnInit {
 
   actionBtn : string = "Save";
 
+
   title:FormControl = new FormControl("");
   image : FormControl = new FormControl("");
   images : FormControl = new FormControl("");
@@ -51,7 +52,7 @@ export class DialogComponent implements OnInit {
     this.result = data;
     })
 
-
+//setting the data to the particular form fields for updation
     if(this.editData)
     {
       this.actionBtn = "Update";
@@ -68,7 +69,7 @@ export class DialogComponent implements OnInit {
       this.tags.setValue(this.editData.tags);
      }
   }
-
+//add the new product
   save()
      {
       if(!this.editData)
@@ -97,11 +98,13 @@ export class DialogComponent implements OnInit {
 
     else
     {
-
+       return;
     }
 
 }
 
+
+//updating the existing product
 updateProduct(product:IProduct){
   this.productService.UpdateProduct(product).subscribe(()=>{
     product;

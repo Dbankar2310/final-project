@@ -10,7 +10,7 @@ import { Route, Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  // set some validations to the admin for login
+  // set some validations to the admin for login such as username and password
 
   loginForm: FormGroup | any;
   title = 'material-login';
@@ -28,14 +28,16 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // redirect the admin to admin-panel after successfull login
+  // redirect the admin to admin-panel after entering the corect credentials
 
   onSubmit(){
     if(!this.loginForm.valid){
       return;
     }
     localStorage.setItem('user',this.loginForm.value)
-    this.router.navigate(['/adminPanel'])
+    this.router.navigate(['/adminPanel'])//route to the admin panel
   }
+
+
 
 }
